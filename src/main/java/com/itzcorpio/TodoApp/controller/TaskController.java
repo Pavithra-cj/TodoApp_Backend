@@ -28,7 +28,7 @@ public class TaskController {
         return ResponseEntity.ok(tasks);
     }
 
-    @GetMapping("/recent")
+    @GetMapping
     public ResponseEntity<List<Task>> getRecentTasks() {
         List<Task> recentTasks = taskService.getRecentTasks();
         return ResponseEntity.ok(recentTasks);
@@ -41,14 +41,14 @@ public class TaskController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @RequestBody Task updatedTask) {
         return taskService.updateTask(id, updatedTask)
                 .map(task -> ResponseEntity.ok().body(task))
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTask(@PathVariable Long id) {
         if (taskService.deleteTask(id)) {
             return ResponseEntity.ok().build();
