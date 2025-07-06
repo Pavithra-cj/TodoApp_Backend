@@ -22,16 +22,10 @@ public class TaskController {
         return ResponseEntity.ok(createdTask);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Task>> getAllTasks() {
         List<Task> tasks = taskService.getAllTasks();
         return ResponseEntity.ok(tasks);
-    }
-
-    @GetMapping
-    public ResponseEntity<List<Task>> getRecentTasks() {
-        List<Task> recentTasks = taskService.getRecentTasks();
-        return ResponseEntity.ok(recentTasks);
     }
 
     @PutMapping("/complete/{id}")

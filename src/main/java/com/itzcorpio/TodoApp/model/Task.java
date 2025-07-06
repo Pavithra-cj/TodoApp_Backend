@@ -1,11 +1,13 @@
 package com.itzcorpio.TodoApp.model;
 
+import jakarta.annotation.Priority;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,6 +27,17 @@ public class Task {
 
     private boolean completed = false;
 
+    @Enumerated(EnumType.STRING)
+    private Priority priority = Priority.Medium;
+
+    private LocalDateTime dueDate;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    public enum Priority {
+        Low,
+        Medium,
+        High
+    }
 }
