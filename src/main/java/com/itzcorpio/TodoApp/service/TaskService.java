@@ -20,11 +20,7 @@ public class TaskService {
     }
 
     public List<Task> getAllTasks() {
-        return taskRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
-    }
-
-    public List<Task> getRecentTasks() {
-        return taskRepository.findTop5ByCompletedFalseOrderByCreatedAtDesc();
+        return taskRepository.findAllByOrderByCreatedAtDesc();
     }
 
     public Optional<Task> completeTask(Long id) {
@@ -38,6 +34,8 @@ public class TaskService {
         return taskRepository.findById(id).map(task -> {
             task.setTitle(updatedTask.getTitle());
             task.setDescription(updatedTask.getDescription());
+            task.setPriority(updatedTask.getPriority());
+            task.setDueDate(updatedTask.getDueDate());
             return taskRepository.save(task);
         });
     }
