@@ -24,7 +24,7 @@ This is the backend service for the Todo Application. It is built with **Java, S
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/todo-backend.git
+git clone https://github.com/Pavithra-cj/TodoApp_Backend.git
 cd todo-backend
 ```
 
