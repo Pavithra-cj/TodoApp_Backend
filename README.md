@@ -29,7 +29,7 @@ cd todo-backend
 ```
 
 ### 2. Run using Docker
--Make sure Docker is installed and running.
+- Make sure Docker is installed and running.
 
 ```bash
 docker-compose up --build
@@ -47,9 +47,10 @@ http://localhost:8080/swagger-ui.html
 ```
 
 ## ⚙️ Profiles and Configuration
-Profile	   |     Purpose
-dev	       |     Local development (connects to localhost MySQL)
-docker	   |     Runs inside Docker (connects to Docker MySQL)
+| Profile | Purpose                                                  |
+|---------|----------------------------------------------------------|
+| `dev`   | Local development (connects to localhost MySQL)         |
+| `docker`| Runs inside Docker (connects to MySQL container)        |
 
 - The app uses Spring profiles with separate configuration files:
   - application-dev.properties
