@@ -22,9 +22,21 @@ public class TaskController {
         return ResponseEntity.ok(createdTask);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Task>> getAllTasks() {
         List<Task> tasks = taskService.getAllTasks();
+        return ResponseEntity.ok(tasks);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Task>> getLatestTop5Tasks() {
+        List<Task> tasks = taskService.latestTop5Tasks();
+        return ResponseEntity.ok(tasks);
+    }
+
+    @GetMapping("/completed")
+    public ResponseEntity<List<Task>> getCompletedTasks() {
+        List<Task> tasks = taskService.getCompletedTasks();
         return ResponseEntity.ok(tasks);
     }
 
